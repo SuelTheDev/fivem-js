@@ -71,7 +71,7 @@ export class Entity implements IDecor {
     Decor.Remove(this.handle, property)
   }
 
-  decorExist(property: any): boolean {
+  decorExist(property: string): boolean {
     return Decor.Exist(this.handle, property)
   }
 
@@ -428,7 +428,7 @@ export class Entity implements IDecor {
     AttachEntityToEntity(
       this.handle,
       entityBone.Owner.Handle,
-      -1,
+      entityBone.Index,
       position.x,
       position.y,
       position.z,

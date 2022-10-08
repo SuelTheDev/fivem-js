@@ -16,18 +16,18 @@ export interface IDecor {
 
 export class Decor {
 
-    static Register(property, type: DecorType) {
+    static Register(property: string, type: DecorType) : void {
         if (!DecorIsRegisteredAsType(property, type)) {
             DecorRegister(property, type)
             DecorRegisterLock()
         }
     }
 
-    static Remove(handle, property) {
+    static Remove(handle: number, property: string) : void {
         DecorRemove(handle, property)
     }
 
-    static Exist(handle, property): boolean {
+    static Exist(handle: number, property: string): boolean {
         return DecorExistOn(handle, property) == 1
     }
 

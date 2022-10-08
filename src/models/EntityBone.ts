@@ -2,6 +2,7 @@ import { Vector3 } from '../utils';
 import { Entity } from './';
 
 export class EntityBone {
+  
   public get Index(): number {
     return this.index;
   }

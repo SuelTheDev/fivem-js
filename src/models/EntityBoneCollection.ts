@@ -7,7 +7,7 @@ export class EntityBoneCollection {
   private _currentIndex = -1;
 
   constructor(owner: Entity) {
-    this.owner = owner;
+    this.owner = owner;    
   }
 
   public hasBone(name: string): boolean {
@@ -17,4 +17,9 @@ export class EntityBoneCollection {
   public get Core(): EntityBone {
     return new EntityBone(this.owner, -1);
   }
+
+  public getBone(boneName: string): EntityBone | null {    
+    return this.hasBone(boneName) ? new EntityBone( this.owner, null, boneName ) : null
+  }
+
 }
