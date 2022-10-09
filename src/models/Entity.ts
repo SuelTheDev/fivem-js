@@ -98,6 +98,16 @@ export class Entity implements IDecor {
   public set MaxHealth(amount: number) {
     SetEntityMaxHealth(this.handle, amount);
   }
+  
+  public get ForwardVector(): Vector3 {
+    const [x, y, z] = GetEntityForwardVector(this.Handle)
+    return new Vector3(x, y, z)
+  }
+
+  public ForwardSpeedVector(relative: boolean): Vector3 {
+    const [x, y, z] = GetEntitySpeedVector(this.Handle, relative)
+    return new Vector3(x, y, z)
+  }
 
   public isDead(): boolean {
     return IsEntityDead(this.handle) ? true : false;
@@ -443,6 +453,9 @@ export class Entity implements IDecor {
       true,
     );
   }
+
+
+  
 
   public detach(): void {
     DetachEntity(this.handle, true, true);
